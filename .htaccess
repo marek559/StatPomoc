@@ -1,0 +1,176 @@
+# ============================================================================
+#  StatPomoc — konfiguracja serwera Apache
+#
+#  Plik dotyczy WYŁĄCZNIE nowej, statycznej wersji serwisu. Zastępuje w całości
+#  stary .htaccess WordPressa (ten z blokami „BEGIN WordPress” i „Wordfence WAF”)
+#  — starego nie wgrywaj, jego reguły kierowałyby ruch do nieistniejącego
+#  już pliku index.php.
+#
+#  Uwaga: plik zaczyna się od kropki, więc programy FTP domyślnie go ukrywają.
+#  Włącz „pokaż ukryte pliki”, żeby sprawdzić, czy się przesłał.
+#
+#  GDYBY STRONA ZWRÓCIŁA BŁĄD 500 zaraz po wgraniu tego pliku — to prawie zawsze
+#  jedna z dwóch linii poniżej: „Options” (część hostingów jej zabrania)
+#  albo wymuszenie HTTPS w sekcji 1 (gdy nie ma jeszcze certyfikatu SSL).
+#  Zakomentuj podejrzaną linię znakiem # i odśwież stronę.
+# ============================================================================
+
+AddDefaultCharset UTF-8
+Options -Indexes -MultiViews
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+# ---------------------------------------------------------------------------
+# 1. Jeden kanoniczny adres: https://statpomoc.org.pl (bez www)
+#    Zgodny z <link rel="canonical"> w plikach HTML.
+#    Jeśli certyfikat SSL nie jest jeszcze aktywny, zakomentuj pierwszą regułę
+#    (postaw # na początku obu jej linii), inaczej strona przestanie się otwierać.
+# ---------------------------------------------------------------------------
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+RewriteRule ^ https://statpomoc.org.pl%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^www\.statpomoc\.org\.pl$ [NC]
+RewriteRule ^ https://statpomoc.org.pl%{REQUEST_URI} [R=301,L]
+
+# ---------------------------------------------------------------------------
+# 2. Przekierowania 301 ze starych adresów WordPressa
+#    Lista odtworzona z kopii bazy danych (wpiq_posts, struktura /%postname%/).
+#    Bez tych reguł linki z Google, Facebooka i cudzych stron trafią na 404,
+#    a wypracowana pozycja w wyszukiwarce przepadnie.
+# ---------------------------------------------------------------------------
+RewriteRule ^home/?$              /                        [R=301,L]
+RewriteRule ^o-nas/?$             /o-nas.html              [R=301,L]
+RewriteRule ^oferta/?$            /oferta.html             [R=301,L]
+RewriteRule ^cennik/?$            /cennik.html             [R=301,L]
+RewriteRule ^samouczek/?$         /samouczek.html          [R=301,L]
+RewriteRule ^kontakt/?$           /kontakt.html            [R=301,L]
+
+# Dwa wpisy blogowe ze starego serwisu. Nie mają odpowiednika 1:1,
+# więc kierujemy je na najbliższą tematycznie podstronę — słownik pojęć.
+RewriteRule ^statystyka-w-praktyce/?$  /samouczek.html     [R=301,L]
+RewriteRule ^statystyka1/?$            /samouczek.html     [R=301,L]
+
+# Stary adres strony głównej z identyfikatorem (?page_id=1543)
+RewriteCond %{QUERY_STRING} (^|&)page_id=1543(&|$)
+RewriteRule ^$ /? [R=301,L]
+
+# Kanały RSS i punkty końcowe WordPressa — dla robotów wyszukiwarek
+RewriteRule ^feed/?$              /                        [R=301,L]
+RewriteRule ^comments/feed/?$     /                        [R=301,L]
+RewriteRule ^(.+)/feed/?$         /$1                      [R=301,L]
+
+# ---------------------------------------------------------------------------
+# 3. Ładne adresy bez rozszerzenia: /oferta działa tak samo jak /oferta.html
+#    To przepisanie wewnętrzne (adres w pasku się nie zmienia), a znacznik
+#    canonical w HTML pilnuje, żeby Google indeksowało tylko wersję z .html.
+# ---------------------------------------------------------------------------
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^([^./]+)/?$ /$1.html [L]
+
+# ---------------------------------------------------------------------------
+# 4. Pozostałości po WordPressie — status 410 (Gone)
+#    Mówi Google „ta treść zniknęła na stałe”, dzięki czemu adresy wypadają
+#    z indeksu szybciej niż przy zwykłym 404. Odcina też falę automatycznych
+#    prób logowania na /wp-login.php i /xmlrpc.php (w logach starej strony
+#    było ich kilkaset).
+# ---------------------------------------------------------------------------
+RewriteRule ^(wp-admin|wp-includes|wp-content|wp-json)(/|$)   - [G,L]
+RewriteRule ^(xmlrpc|wp-login|wp-cron|wp-signup|wp-trackback|wp-comments-post|wp-mail|wp-links-opml|wp-activate)\.php$ - [G,L]
+RewriteRule ^(readme\.html|license\.txt|wp-config-sample\.php|wordfence-waf\.php)$ - [G,L]
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# 5. Pliki, których nikt z zewnątrz nie powinien pobrać
+# ---------------------------------------------------------------------------
+<FilesMatch "^\.|(\.(md|sql|gz|log|ini|bak|old|orig|save|swp)|~)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+# ---------------------------------------------------------------------------
+# 6. Nagłówki bezpieczeństwa
+# ---------------------------------------------------------------------------
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), interest-cohort=()"
+
+  # HSTS — wymusza HTTPS w przeglądarce na rok z góry.
+  # WŁĄCZ DOPIERO, gdy strona pewnie działa po https (inaczej trudno to cofnąć).
+  # Header always set Strict-Transport-Security "max-age=31536000" env=HTTPS
+
+  # Polityka CSP. Zostawiona zakomentowana celowo: dopuszcza Trustindex
+  # i Formspree, ale jeśli Trustindex zmieni domenę serwowania zdjęć,
+  # widget opinii zniknie bez widocznego błędu. Włączaj świadomie
+  # i od razu sprawdź sekcję „Opinie” na stronie głównej.
+  # Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.trustindex.io https://*.trustindex.io; style-src 'self' 'unsafe-inline' https://cdn.trustindex.io; img-src 'self' data: https://*.trustindex.io https://*.googleusercontent.com https://*.gstatic.com; connect-src 'self' https://formspree.io https://*.trustindex.io; form-action 'self' https://formspree.io; frame-ancestors 'self'; base-uri 'self'; object-src 'none'"
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# 7. Kompresja
+# ---------------------------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/x-javascript
+  AddOutputFilterByType DEFLATE application/json application/xml application/rss+xml
+  AddOutputFilterByType DEFLATE image/svg+xml application/manifest+json
+</IfModule>
+
+<IfModule mod_brotli.c>
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/css text/xml
+  AddOutputFilterByType BROTLI_COMPRESS application/javascript application/json
+  AddOutputFilterByType BROTLI_COMPRESS image/svg+xml
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# 8. Pamięć podręczna przeglądarki
+#    HTML bez cache (żeby poprawki treści były widoczne od razu),
+#    zasoby statyczne na rok. Po podmianie logo lub arkusza stylów
+#    dopisz do adresu wersję, np. style.css?v=2, albo zmień nazwę pliku.
+# ---------------------------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault                        "access plus 1 month"
+  ExpiresByType text/html               "access plus 0 seconds"
+  ExpiresByType text/css                "access plus 1 year"
+  ExpiresByType application/javascript  "access plus 1 year"
+  ExpiresByType image/png               "access plus 1 year"
+  ExpiresByType image/jpeg              "access plus 1 year"
+  ExpiresByType image/svg+xml           "access plus 1 year"
+  ExpiresByType image/x-icon            "access plus 1 year"
+  ExpiresByType application/manifest+json "access plus 1 week"
+  ExpiresByType application/xml         "access plus 1 day"
+  ExpiresByType text/plain              "access plus 1 day"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(css|js|png|jpe?g|svg|ico|woff2?)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# 9. Typy MIME (część hostingów nie zna ich domyślnie)
+# ---------------------------------------------------------------------------
+<IfModule mod_mime.c>
+  AddType image/svg+xml                 .svg
+  AddType application/manifest+json     .webmanifest
+  AddType image/x-icon                  .ico
+  AddType text/cache-manifest           .appcache
+</IfModule>

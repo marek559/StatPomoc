@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Samouczek — słownik pojęć statystycznych | StatPomoc</title>
+<meta name="description" content="Słownik pojęć statystycznych: poziom istotności alfa, błąd I i II rodzaju, miary położenia i zróżnicowania, odchylenie standardowe, korelacja, analiza przeżycia, próba reprezentatywna.">
+<link rel="canonical" href="https://statpomoc.org.pl/samouczek.html">
+<meta name="theme-color" content="#0E141B">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:site_name" content="StatPomoc">
+<meta property="og:title" content="Samouczek — słownik pojęć statystycznych">
+<meta property="og:description" content="Słownik pojęć statystycznych: poziom istotności alfa, błąd I i II rodzaju, miary położenia i zróżnicowania, odchylenie standardowe, korelacja, analiza przeżycia, próba reprezentaty">
+<meta property="og:url" content="https://statpomoc.org.pl/samouczek.html">
+<meta property="og:image" content="https://statpomoc.org.pl/assets/img/og-statpomoc.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="StatPomoc — analizy statystyczne do prac dyplomowych, doktoratów i publikacji naukowych">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://statpomoc.org.pl/assets/img/og-statpomoc.jpg">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/img/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="stylesheet" href="assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Start", "item": "https://statpomoc.org.pl/"},
+    {"@type": "ListItem", "position": 2, "name": "Samouczek", "item": "https://statpomoc.org.pl/samouczek.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "name": "Słownik pojęć statystycznych StatPomoc",
+  "url": "https://statpomoc.org.pl/samouczek.html",
+  "inDefinedTermSet": "https://statpomoc.org.pl/samouczek.html",
+  "hasDefinedTerm": [
+    {
+      "@type": "DefinedTerm",
+      "name": "Analiza przeżycia",
+      "url": "https://statpomoc.org.pl/samouczek.html#analiza-przezycia",
+      "description": "Metody statystyczne sprawdzające czas, jaki upłynie do wystąpienia określonego zdarzenia (kończącego obserwację dla danej jednostki — np. zgonu pacjenta w grupie), w porównaniu między różnymi grupami."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Błąd I rodzaju",
+      "url": "https://statpomoc.org.pl/samouczek.html#blad-i-rodzaju",
+      "description": "Błąd typu alfa — polega na odrzuceniu hipotezy zerowej, która w rzeczywistości jest prawdziwa. Oszacowanie prawdopodobieństwa jego popełnienia oznaczamy symbolem α i nazywamy poziomem istotności testu."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Błąd II rodzaju",
+      "url": "https://statpomoc.org.pl/samouczek.html#blad-ii-rodzaju",
+      "description": "Błąd przyjęcia, beta-błąd — polega na nieodrzuceniu hipotezy zerowej, która w rzeczywistości jest fałszywa. Prawdopodobieństwo jego popełnienia oznaczamy symbolem β, a jego dopełnienie do jedności nazywane jest mocą testu."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Wariancja",
+      "url": "https://statpomoc.org.pl/samouczek.html#wariancja",
+      "description": "Miara zróżnicowania rozkładu — średnia kwadratów odchyleń poszczególnych obserwacji od średniej arytmetycznej. Pierwiastek kwadratowy z wariancji to odchylenie standardowe."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Korelacja",
+      "url": "https://statpomoc.org.pl/samouczek.html#korelacja",
+      "description": "Analiza dotycząca określenia wzajemnego związku między danymi ilościowymi — jego siły i kierunku."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Miary położenia",
+      "url": "https://statpomoc.org.pl/samouczek.html#miary-polozenia",
+      "description": "Należą do nich kwantyle: wartość minimalna, maksymalna, kwartyl I i kwartyl III. W tej kategorii zaliczane są także miary położenia centralnego, takie jak: średnia arytmetyczna, geometryczna, harmoniczna, kwadratowa, mediana oraz moda."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Miary zróżnicowania",
+      "url": "https://statpomoc.org.pl/samouczek.html#miary-zroznicowania",
+      "description": "Należą tu: odchylenie standardowe, wariancja, rozstęp, rozstęp ćwiartkowy, średnie odchylenie bezwzględne, odchylenie ćwiartkowe oraz współczynnik zmienności."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Próba reprezentatywna",
+      "url": "https://statpomoc.org.pl/samouczek.html#proba-reprezentatywna",
+      "description": "Część populacji pozwalająca w przybliżeniu opisać całość populacji. Próba niespełniająca tego warunku nazywana jest niereprezentatywną lub obciążoną."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Próba statystyczna",
+      "url": "https://statpomoc.org.pl/samouczek.html#proba-statystyczna",
+      "description": "Zbiór obserwacji wybranych — zwykle losowo — z populacji."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Rozstęp",
+      "url": "https://statpomoc.org.pl/samouczek.html#rozstep",
+      "description": "Najprostsza miara rozproszenia (zmienności): różnica między wartością maksymalną a minimalną w zbiorze obserwacji."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Rozstęp ćwiartkowy",
+      "url": "https://statpomoc.org.pl/samouczek.html#rozstep-cwiartkowy",
+      "description": "Nazywany również rozstępem kwartylnym lub międzykwartylowym — różnica pomiędzy trzecim a pierwszym kwartylem. Między tymi kwartylami znajduje się z definicji 50% wszystkich obserwacji."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Rozstęp kwartylowy",
+      "url": "https://statpomoc.org.pl/samouczek.html#rozstep-kwartylowy",
+      "description": "Patrz: rozstęp ćwiartkowy."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "SD — odchylenie standardowe",
+      "url": "https://statpomoc.org.pl/samouczek.html#odchylenie-standardowe",
+      "description": "Odchylenie standardowe mówi, jak szeroko wartości danej wielkości (na przykład wieku, inflacji, kursu walutowego) są rozrzucone wokół jej średniej."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Statystyka opisowa",
+      "url": "https://statpomoc.org.pl/samouczek.html#statystyka-opisowa",
+      "description": "Dział statystyki zajmujący się metodami opisu danych uzyskanych podczas badania statystycznego. W szczególności dotyczy opisu tabelarycznego, graficznej prezentacji wyników oraz wyznaczenia miar rozkładu."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "V — współczynnik zmienności",
+      "url": "https://statpomoc.org.pl/samouczek.html#wspolczynnik-zmiennosci",
+      "description": "Miara zróżnicowania rozkładu cechy — parametr względny definiowany jako zmienność odchylenia standardowego względem średniej. Parametr ten nie posiada jednostki."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "α — alfa",
+      "url": "https://statpomoc.org.pl/samouczek.html#alfa",
+      "description": "Poziom istotności statystycznej — graniczne prawdopodobieństwo popełnienia błędu I rodzaju, przyjmowane przed wykonaniem testu (najczęściej 0,05)."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "β — beta",
+      "url": "https://statpomoc.org.pl/samouczek.html#beta",
+      "description": "Wskaźnik potrzebny do określenia mocy testu statystycznego — prawdopodobieństwo popełnienia błędu II rodzaju."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Test t-Studenta",
+      "url": "https://statpomoc.org.pl/samouczek.html#test-t-studenta",
+      "description": "Test porównujący średnie w dwóch grupach, gdy dane są ilościowe i mają w przybliżeniu rozkład normalny. W wersji dla prób niezależnych porównuje dwie odrębne grupy, a dla par — dwa pomiary u tych samych osób."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Test U Manna-Whitneya",
+      "url": "https://statpomoc.org.pl/samouczek.html#test-u-manna-whitneya",
+      "description": "Nieparametryczny odpowiednik testu t dla prób niezależnych. Porównuje dwie grupy, gdy dane są porządkowe albo gdy nie jest spełnione założenie o normalności rozkładu."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "ANOVA — analiza wariancji",
+      "url": "https://statpomoc.org.pl/samouczek.html#anova",
+      "description": "Test sprawdzający, czy średnie różnią się między trzema lub większą liczbą grup. Istotny wynik wskazuje, że co najmniej dwie grupy się różnią — które dokładnie, ustalają testy post hoc."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Test Kruskala-Wallisa",
+      "url": "https://statpomoc.org.pl/samouczek.html#test-kruskala-wallisa",
+      "description": "Nieparametryczny odpowiednik jednoczynnikowej ANOVA. Porównuje trzy lub więcej grup, gdy dane są porządkowe albo rozkład nie jest normalny."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Test Wilcoxona",
+      "url": "https://statpomoc.org.pl/samouczek.html#test-wilcoxona",
+      "description": "Nieparametryczny test dla dwóch pomiarów powtarzanych u tych samych osób (np. przed i po). Odpowiednik testu t dla par, gdy założenia parametryczne nie są spełnione."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Test Friedmana",
+      "url": "https://statpomoc.org.pl/samouczek.html#test-friedmana",
+      "description": "Nieparametryczny test dla trzech lub więcej pomiarów powtarzanych u tych samych osób — odpowiednik ANOVA dla pomiarów powtarzanych."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Test chi-kwadrat",
+      "url": "https://statpomoc.org.pl/samouczek.html#test-chi-kwadrat",
+      "description": "Test niezależności dwóch cech jakościowych (nominalnych) — sprawdza, czy rozkład jednej cechy zależy od drugiej, na podstawie tabeli liczności."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Dokładny test Fishera",
+      "url": "https://statpomoc.org.pl/samouczek.html#test-fishera",
+      "description": "Odpowiednik testu chi-kwadrat stosowany przy małych licznościach w tabeli, gdy oczekiwane liczebności są zbyt niskie, by chi-kwadrat był wiarygodny."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Regresja",
+      "url": "https://statpomoc.org.pl/samouczek.html#regresja",
+      "description": "Model opisujący, jak jedna lub więcej zmiennych objaśniających wpływa na wynik. Regresja liniowa przewiduje wynik ilościowy, a regresja logistyczna — prawdopodobieństwo zdarzenia o dwóch możliwych wartościach (np. wystąpił / nie wystąpił)."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Test log-rank",
+      "url": "https://statpomoc.org.pl/samouczek.html#test-log-rank",
+      "description": "Test porównujący krzywe przeżycia dwóch lub więcej grup — sprawdza, czy czas do wystąpienia zdarzenia różni się między grupami."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Model Coxa",
+      "url": "https://statpomoc.org.pl/samouczek.html#model-coxa",
+      "description": "Model regresji w analizie przeżycia (proporcjonalnego hazardu). Ocenia, jak poszczególne czynniki wpływają na ryzyko wystąpienia zdarzenia w czasie."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Alfa Cronbacha",
+      "url": "https://statpomoc.org.pl/samouczek.html#alfa-cronbacha",
+      "description": "Miara rzetelności (spójności wewnętrznej) skali lub kwestionariusza — mówi, w jakim stopniu pozycje testu mierzą to samo. Wartości bliższe 1 oznaczają wyższą rzetelność."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Analiza czynnikowa",
+      "url": "https://statpomoc.org.pl/samouczek.html#analiza-czynnikowa",
+      "description": "Metoda redukcji danych — grupuje wiele powiązanych pozycji (np. pytań ankiety) w mniejszą liczbę ukrytych czynników, co ułatwia interpretację narzędzia badawczego."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Wartość p (p-value)",
+      "url": "https://statpomoc.org.pl/samouczek.html#wartosc-p",
+      "description": "Prawdopodobieństwo uzyskania wyniku co najmniej tak skrajnego jak zaobserwowany, przy założeniu prawdziwości hipotezy zerowej. Wartość p poniżej przyjętego poziomu istotności (zwykle 0,05) uznaje się za wynik istotny statystycznie."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Hipoteza zerowa",
+      "url": "https://statpomoc.org.pl/samouczek.html#hipoteza-zerowa",
+      "description": "Założenie o braku efektu lub braku różnicy (np. grupy nie różnią się średnią). Test statystyczny ocenia, czy dane dają podstawy, by ją odrzucić."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Hipoteza alternatywna",
+      "url": "https://statpomoc.org.pl/samouczek.html#hipoteza-alternatywna",
+      "description": "Twierdzenie przeciwne do hipotezy zerowej — zakłada istnienie efektu lub różnicy. To jej zwykle dotyczy pytanie badawcze."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Przedział ufności",
+      "url": "https://statpomoc.org.pl/samouczek.html#przedzial-ufnosci",
+      "description": "Zakres wartości, w którym z określonym prawdopodobieństwem (najczęściej 95%) mieści się prawdziwa wartość szacowanego parametru w populacji."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Normalność rozkładu",
+      "url": "https://statpomoc.org.pl/samouczek.html#normalnosc-rozkladu",
+      "description": "Założenie wielu testów parametrycznych, że dane mają rozkład zbliżony do normalnego (dzwonowego). Sprawdza się je m.in. testem Shapiro-Wilka lub wykresami; jego brak kieruje ku metodom nieparametrycznym."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Moc testu",
+      "url": "https://statpomoc.org.pl/samouczek.html#moc-testu",
+      "description": "Prawdopodobieństwo wykrycia efektu, który faktycznie istnieje (odrzucenia fałszywej hipotezy zerowej). Jest dopełnieniem błędu II rodzaju i rośnie m.in. wraz z wielkością próby."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Mediana",
+      "url": "https://statpomoc.org.pl/samouczek.html#mediana",
+      "description": "Wartość środkowa uporządkowanego zbioru obserwacji — połowa wyników jest od niej mniejsza, połowa większa. Odporna na wartości skrajne, w przeciwieństwie do średniej."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Średnia arytmetyczna",
+      "url": "https://statpomoc.org.pl/samouczek.html#srednia-arytmetyczna",
+      "description": "Suma wszystkich obserwacji podzielona przez ich liczbę. Najprostsza miara przeciętnego poziomu, wrażliwa na wartości odstające."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Kwartyl",
+      "url": "https://statpomoc.org.pl/samouczek.html#kwartyl",
+      "description": "Wartości dzielące uporządkowany zbiór na cztery równe części. Pierwszy kwartyl odcina 25% najniższych obserwacji, drugi to mediana, a trzeci — 75%."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Histogram",
+      "url": "https://statpomoc.org.pl/samouczek.html#histogram",
+      "description": "Wykres słupkowy pokazujący, jak często obserwacje wpadają w kolejne przedziały wartości. Służy do oceny kształtu rozkładu, w tym jego normalności."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Zmienne ilościowe i jakościowe",
+      "url": "https://statpomoc.org.pl/samouczek.html#zmienne-ilosciowe-jakosciowe",
+      "description": "Zmienne ilościowe wyrażają liczbę (np. wiek, ciśnienie), a jakościowe — kategorię (np. płeć, grupa krwi). Ten podział decyduje o doborze metody statystycznej."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Zmienna zależna i niezależna",
+      "url": "https://statpomoc.org.pl/samouczek.html#zmienna-zalezna-niezalezna",
+      "description": "Zmienna zależna to mierzony wynik, który chcemy wyjaśnić; zmienne niezależne to czynniki, których wpływ na wynik badamy."
+    }
+  ]
+}
+</script>
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Przejdź do treści</a>
+
+<header class="site-header">
+  <div class="container header-bar">
+    <a class="brand" href="index.html" aria-label="StatPomoc — strona główna">
+      <img src="assets/img/logo.png" alt="" width="203" height="112">
+      <span class="brand__text">
+        <span class="brand__name">StatPomoc</span>
+        <span class="brand__tag">Analizy danych statystycznych</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menu">
+      <span></span>
+    </button>
+    <nav class="nav" id="nav" aria-label="Menu główne">
+      <ul class="nav__list">
+        <li><a class="nav__link" href="index.html">Start</a></li>
+        <li><a class="nav__link" href="o-nas.html">O nas</a></li>
+        <li><a class="nav__link" href="oferta.html">Oferta</a></li>
+        <li><a class="nav__link" href="cennik.html">Cennik</a></li>
+        <li><a class="nav__link" href="samouczek.html" aria-current="page">Samouczek</a></li>
+        <li><a class="nav__link" href="kontakt.html">Kontakt</a></li>
+        <li><a class="btn btn--sm" href="kontakt.html">Bezpłatna wycena</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn--sm header-cta" href="kontakt.html">Bezpłatna wycena</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="page-hero">
+    <div class="container page-hero__inner">
+      <nav class="breadcrumbs" aria-label="Ścieżka nawigacji">
+        <a href="index.html">Start</a> <span aria-hidden="true">/</span> <span aria-current="page">Samouczek</span>
+      </nav>
+      <h1>Samouczek</h1>
+      <p class="lead">
+        Wyjaśnienie zagadnień i pojęć statystycznych, które najczęściej pojawiają się
+        w pracach dyplomowych, recenzjach i pytaniach na obronie.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Słownik pojęć</p>
+        <h2>Statystyka bez tajemnic</h2>
+        <p class="lead">
+          Wpisz pojęcie, żeby szybko je odnaleźć. Jeśli czegoś tu brakuje — napisz do nas,
+          chętnie wyjaśnimy i dopiszemy.
+        </p>
+      </div>
+
+      <div class="glossary-tools reveal">
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg>
+          <label class="visually-hidden" for="glossary-search">Szukaj pojęcia w słowniku</label>
+          <input type="search" id="glossary-search" placeholder="Szukaj, np. „odchylenie standardowe”" autocomplete="off">
+        </div>
+        <p class="glossary-count" id="glossary-count">42 pojęć w słowniku</p>
+      </div>
+
+      <div class="glossary">
+        <article class="term" id="analiza-przezycia">
+          <h3>Analiza przeżycia <a class="term__anchor" href="#analiza-przezycia" aria-label="Odnośnik do pojęcia: Analiza przeżycia">#</a></h3>
+          <p>Metody statystyczne sprawdzające czas, jaki upłynie do wystąpienia określonego zdarzenia (kończącego obserwację dla danej jednostki — np. zgonu pacjenta w grupie), w porównaniu między różnymi grupami.</p>
+        </article>
+        <article class="term" id="blad-i-rodzaju">
+          <h3>Błąd I rodzaju <a class="term__anchor" href="#blad-i-rodzaju" aria-label="Odnośnik do pojęcia: Błąd I rodzaju">#</a></h3>
+          <p>Błąd typu alfa — polega na odrzuceniu hipotezy zerowej, która w rzeczywistości jest prawdziwa. Oszacowanie prawdopodobieństwa jego popełnienia oznaczamy symbolem α i nazywamy poziomem istotności testu.</p>
+        </article>
+        <article class="term" id="blad-ii-rodzaju">
+          <h3>Błąd II rodzaju <a class="term__anchor" href="#blad-ii-rodzaju" aria-label="Odnośnik do pojęcia: Błąd II rodzaju">#</a></h3>
+          <p>Błąd przyjęcia, beta-błąd — polega na nieodrzuceniu hipotezy zerowej, która w rzeczywistości jest fałszywa. Prawdopodobieństwo jego popełnienia oznaczamy symbolem β, a jego dopełnienie do jedności nazywane jest mocą testu.</p>
+        </article>
+        <article class="term" id="wariancja">
+          <h3>Wariancja <a class="term__anchor" href="#wariancja" aria-label="Odnośnik do pojęcia: Wariancja">#</a></h3>
+          <p>Miara zróżnicowania rozkładu — średnia kwadratów odchyleń poszczególnych obserwacji od średniej arytmetycznej. Pierwiastek kwadratowy z wariancji to odchylenie standardowe.</p>
+        </article>
+        <article class="term" id="korelacja">
+          <h3>Korelacja <a class="term__anchor" href="#korelacja" aria-label="Odnośnik do pojęcia: Korelacja">#</a></h3>
+          <p>Analiza dotycząca określenia wzajemnego związku między danymi ilościowymi — jego siły i kierunku.</p>
+        </article>
+        <article class="term" id="miary-polozenia">
+          <h3>Miary położenia <a class="term__anchor" href="#miary-polozenia" aria-label="Odnośnik do pojęcia: Miary położenia">#</a></h3>
+          <p>Należą do nich kwantyle: wartość minimalna, maksymalna, kwartyl I i kwartyl III. W tej kategorii zaliczane są także miary położenia centralnego, takie jak: średnia arytmetyczna, geometryczna, harmoniczna, kwadratowa, mediana oraz moda.</p>
+        </article>
+        <article class="term" id="miary-zroznicowania">
+          <h3>Miary zróżnicowania <a class="term__anchor" href="#miary-zroznicowania" aria-label="Odnośnik do pojęcia: Miary zróżnicowania">#</a></h3>
+          <p>Należą tu: odchylenie standardowe, wariancja, rozstęp, rozstęp ćwiartkowy, średnie odchylenie bezwzględne, odchylenie ćwiartkowe oraz współczynnik zmienności.</p>
+        </article>
+        <article class="term" id="proba-reprezentatywna">
+          <h3>Próba reprezentatywna <a class="term__anchor" href="#proba-reprezentatywna" aria-label="Odnośnik do pojęcia: Próba reprezentatywna">#</a></h3>
+          <p>Część populacji pozwalająca w przybliżeniu opisać całość populacji. Próba niespełniająca tego warunku nazywana jest niereprezentatywną lub obciążoną.</p>
+        </article>
+        <article class="term" id="proba-statystyczna">
+          <h3>Próba statystyczna <a class="term__anchor" href="#proba-statystyczna" aria-label="Odnośnik do pojęcia: Próba statystyczna">#</a></h3>
+          <p>Zbiór obserwacji wybranych — zwykle losowo — z populacji.</p>
+        </article>
+        <article class="term" id="rozstep">
+          <h3>Rozstęp <a class="term__anchor" href="#rozstep" aria-label="Odnośnik do pojęcia: Rozstęp">#</a></h3>
+          <p>Najprostsza miara rozproszenia (zmienności): różnica między wartością maksymalną a minimalną w zbiorze obserwacji.</p>
+        </article>
+        <article class="term" id="rozstep-cwiartkowy">
+          <h3>Rozstęp ćwiartkowy <a class="term__anchor" href="#rozstep-cwiartkowy" aria-label="Odnośnik do pojęcia: Rozstęp ćwiartkowy">#</a></h3>
+          <p>Nazywany również rozstępem kwartylnym lub międzykwartylowym — różnica pomiędzy trzecim a pierwszym kwartylem. Między tymi kwartylami znajduje się z definicji 50% wszystkich obserwacji.</p>
+        </article>
+        <article class="term" id="rozstep-kwartylowy">
+          <h3>Rozstęp kwartylowy <a class="term__anchor" href="#rozstep-kwartylowy" aria-label="Odnośnik do pojęcia: Rozstęp kwartylowy">#</a></h3>
+          <p>Patrz: rozstęp ćwiartkowy.</p>
+        </article>
+        <article class="term" id="odchylenie-standardowe">
+          <h3>SD — odchylenie standardowe <a class="term__anchor" href="#odchylenie-standardowe" aria-label="Odnośnik do pojęcia: SD — odchylenie standardowe">#</a></h3>
+          <p>Odchylenie standardowe mówi, jak szeroko wartości danej wielkości (na przykład wieku, inflacji, kursu walutowego) są rozrzucone wokół jej średniej.</p>
+        </article>
+        <article class="term" id="statystyka-opisowa">
+          <h3>Statystyka opisowa <a class="term__anchor" href="#statystyka-opisowa" aria-label="Odnośnik do pojęcia: Statystyka opisowa">#</a></h3>
+          <p>Dział statystyki zajmujący się metodami opisu danych uzyskanych podczas badania statystycznego. W szczególności dotyczy opisu tabelarycznego, graficznej prezentacji wyników oraz wyznaczenia miar rozkładu.</p>
+        </article>
+        <article class="term" id="wspolczynnik-zmiennosci">
+          <h3>V — współczynnik zmienności <a class="term__anchor" href="#wspolczynnik-zmiennosci" aria-label="Odnośnik do pojęcia: V — współczynnik zmienności">#</a></h3>
+          <p>Miara zróżnicowania rozkładu cechy — parametr względny definiowany jako zmienność odchylenia standardowego względem średniej. Parametr ten nie posiada jednostki.</p>
+        </article>
+        <article class="term" id="alfa">
+          <h3>α — alfa <a class="term__anchor" href="#alfa" aria-label="Odnośnik do pojęcia: α — alfa">#</a></h3>
+          <p>Poziom istotności statystycznej — graniczne prawdopodobieństwo popełnienia błędu I rodzaju, przyjmowane przed wykonaniem testu (najczęściej 0,05).</p>
+        </article>
+        <article class="term" id="beta">
+          <h3>β — beta <a class="term__anchor" href="#beta" aria-label="Odnośnik do pojęcia: β — beta">#</a></h3>
+          <p>Wskaźnik potrzebny do określenia mocy testu statystycznego — prawdopodobieństwo popełnienia błędu II rodzaju.</p>
+        </article>
+        <article class="term" id="test-t-studenta">
+          <h3>Test t-Studenta <a class="term__anchor" href="#test-t-studenta" aria-label="Odnośnik do pojęcia: Test t-Studenta">#</a></h3>
+          <p>Test porównujący średnie w dwóch grupach, gdy dane są ilościowe i mają w przybliżeniu rozkład normalny. W wersji dla prób niezależnych porównuje dwie odrębne grupy, a dla par — dwa pomiary u tych samych osób.</p>
+        </article>
+        <article class="term" id="test-u-manna-whitneya">
+          <h3>Test U Manna-Whitneya <a class="term__anchor" href="#test-u-manna-whitneya" aria-label="Odnośnik do pojęcia: Test U Manna-Whitneya">#</a></h3>
+          <p>Nieparametryczny odpowiednik testu t dla prób niezależnych. Porównuje dwie grupy, gdy dane są porządkowe albo gdy nie jest spełnione założenie o normalności rozkładu.</p>
+        </article>
+        <article class="term" id="anova">
+          <h3>ANOVA — analiza wariancji <a class="term__anchor" href="#anova" aria-label="Odnośnik do pojęcia: ANOVA — analiza wariancji">#</a></h3>
+          <p>Test sprawdzający, czy średnie różnią się między trzema lub większą liczbą grup. Istotny wynik wskazuje, że co najmniej dwie grupy się różnią — które dokładnie, ustalają testy post hoc.</p>
+        </article>
+        <article class="term" id="test-kruskala-wallisa">
+          <h3>Test Kruskala-Wallisa <a class="term__anchor" href="#test-kruskala-wallisa" aria-label="Odnośnik do pojęcia: Test Kruskala-Wallisa">#</a></h3>
+          <p>Nieparametryczny odpowiednik jednoczynnikowej ANOVA. Porównuje trzy lub więcej grup, gdy dane są porządkowe albo rozkład nie jest normalny.</p>
+        </article>
+        <article class="term" id="test-wilcoxona">
+          <h3>Test Wilcoxona <a class="term__anchor" href="#test-wilcoxona" aria-label="Odnośnik do pojęcia: Test Wilcoxona">#</a></h3>
+          <p>Nieparametryczny test dla dwóch pomiarów powtarzanych u tych samych osób (np. przed i po). Odpowiednik testu t dla par, gdy założenia parametryczne nie są spełnione.</p>
+        </article>
+        <article class="term" id="test-friedmana">
+          <h3>Test Friedmana <a class="term__anchor" href="#test-friedmana" aria-label="Odnośnik do pojęcia: Test Friedmana">#</a></h3>
+          <p>Nieparametryczny test dla trzech lub więcej pomiarów powtarzanych u tych samych osób — odpowiednik ANOVA dla pomiarów powtarzanych.</p>
+        </article>
+        <article class="term" id="test-chi-kwadrat">
+          <h3>Test chi-kwadrat <a class="term__anchor" href="#test-chi-kwadrat" aria-label="Odnośnik do pojęcia: Test chi-kwadrat">#</a></h3>
+          <p>Test niezależności dwóch cech jakościowych (nominalnych) — sprawdza, czy rozkład jednej cechy zależy od drugiej, na podstawie tabeli liczności.</p>
+        </article>
+        <article class="term" id="test-fishera">
+          <h3>Dokładny test Fishera <a class="term__anchor" href="#test-fishera" aria-label="Odnośnik do pojęcia: Dokładny test Fishera">#</a></h3>
+          <p>Odpowiednik testu chi-kwadrat stosowany przy małych licznościach w tabeli, gdy oczekiwane liczebności są zbyt niskie, by chi-kwadrat był wiarygodny.</p>
+        </article>
+        <article class="term" id="regresja">
+          <h3>Regresja <a class="term__anchor" href="#regresja" aria-label="Odnośnik do pojęcia: Regresja">#</a></h3>
+          <p>Model opisujący, jak jedna lub więcej zmiennych objaśniających wpływa na wynik. Regresja liniowa przewiduje wynik ilościowy, a regresja logistyczna — prawdopodobieństwo zdarzenia o dwóch możliwych wartościach (np. wystąpił / nie wystąpił).</p>
+        </article>
+        <article class="term" id="test-log-rank">
+          <h3>Test log-rank <a class="term__anchor" href="#test-log-rank" aria-label="Odnośnik do pojęcia: Test log-rank">#</a></h3>
+          <p>Test porównujący krzywe przeżycia dwóch lub więcej grup — sprawdza, czy czas do wystąpienia zdarzenia różni się między grupami.</p>
+        </article>
+        <article class="term" id="model-coxa">
+          <h3>Model Coxa <a class="term__anchor" href="#model-coxa" aria-label="Odnośnik do pojęcia: Model Coxa">#</a></h3>
+          <p>Model regresji w analizie przeżycia (proporcjonalnego hazardu). Ocenia, jak poszczególne czynniki wpływają na ryzyko wystąpienia zdarzenia w czasie.</p>
+        </article>
+        <article class="term" id="alfa-cronbacha">
+          <h3>Alfa Cronbacha <a class="term__anchor" href="#alfa-cronbacha" aria-label="Odnośnik do pojęcia: Alfa Cronbacha">#</a></h3>
+          <p>Miara rzetelności (spójności wewnętrznej) skali lub kwestionariusza — mówi, w jakim stopniu pozycje testu mierzą to samo. Wartości bliższe 1 oznaczają wyższą rzetelność.</p>
+        </article>
+        <article class="term" id="analiza-czynnikowa">
+          <h3>Analiza czynnikowa <a class="term__anchor" href="#analiza-czynnikowa" aria-label="Odnośnik do pojęcia: Analiza czynnikowa">#</a></h3>
+          <p>Metoda redukcji danych — grupuje wiele powiązanych pozycji (np. pytań ankiety) w mniejszą liczbę ukrytych czynników, co ułatwia interpretację narzędzia badawczego.</p>
+        </article>
+        <article class="term" id="wartosc-p">
+          <h3>Wartość p (p-value) <a class="term__anchor" href="#wartosc-p" aria-label="Odnośnik do pojęcia: Wartość p (p-value)">#</a></h3>
+          <p>Prawdopodobieństwo uzyskania wyniku co najmniej tak skrajnego jak zaobserwowany, przy założeniu prawdziwości hipotezy zerowej. Wartość p poniżej przyjętego poziomu istotności (zwykle 0,05) uznaje się za wynik istotny statystycznie.</p>
+        </article>
+        <article class="term" id="hipoteza-zerowa">
+          <h3>Hipoteza zerowa <a class="term__anchor" href="#hipoteza-zerowa" aria-label="Odnośnik do pojęcia: Hipoteza zerowa">#</a></h3>
+          <p>Założenie o braku efektu lub braku różnicy (np. grupy nie różnią się średnią). Test statystyczny ocenia, czy dane dają podstawy, by ją odrzucić.</p>
+        </article>
+        <article class="term" id="hipoteza-alternatywna">
+          <h3>Hipoteza alternatywna <a class="term__anchor" href="#hipoteza-alternatywna" aria-label="Odnośnik do pojęcia: Hipoteza alternatywna">#</a></h3>
+          <p>Twierdzenie przeciwne do hipotezy zerowej — zakłada istnienie efektu lub różnicy. To jej zwykle dotyczy pytanie badawcze.</p>
+        </article>
+        <article class="term" id="przedzial-ufnosci">
+          <h3>Przedział ufności <a class="term__anchor" href="#przedzial-ufnosci" aria-label="Odnośnik do pojęcia: Przedział ufności">#</a></h3>
+          <p>Zakres wartości, w którym z określonym prawdopodobieństwem (najczęściej 95%) mieści się prawdziwa wartość szacowanego parametru w populacji.</p>
+        </article>
+        <article class="term" id="normalnosc-rozkladu">
+          <h3>Normalność rozkładu <a class="term__anchor" href="#normalnosc-rozkladu" aria-label="Odnośnik do pojęcia: Normalność rozkładu">#</a></h3>
+          <p>Założenie wielu testów parametrycznych, że dane mają rozkład zbliżony do normalnego (dzwonowego). Sprawdza się je m.in. testem Shapiro-Wilka lub wykresami; jego brak kieruje ku metodom nieparametrycznym.</p>
+        </article>
+        <article class="term" id="moc-testu">
+          <h3>Moc testu <a class="term__anchor" href="#moc-testu" aria-label="Odnośnik do pojęcia: Moc testu">#</a></h3>
+          <p>Prawdopodobieństwo wykrycia efektu, który faktycznie istnieje (odrzucenia fałszywej hipotezy zerowej). Jest dopełnieniem błędu II rodzaju i rośnie m.in. wraz z wielkością próby.</p>
+        </article>
+        <article class="term" id="mediana">
+          <h3>Mediana <a class="term__anchor" href="#mediana" aria-label="Odnośnik do pojęcia: Mediana">#</a></h3>
+          <p>Wartość środkowa uporządkowanego zbioru obserwacji — połowa wyników jest od niej mniejsza, połowa większa. Odporna na wartości skrajne, w przeciwieństwie do średniej.</p>
+        </article>
+        <article class="term" id="srednia-arytmetyczna">
+          <h3>Średnia arytmetyczna <a class="term__anchor" href="#srednia-arytmetyczna" aria-label="Odnośnik do pojęcia: Średnia arytmetyczna">#</a></h3>
+          <p>Suma wszystkich obserwacji podzielona przez ich liczbę. Najprostsza miara przeciętnego poziomu, wrażliwa na wartości odstające.</p>
+        </article>
+        <article class="term" id="kwartyl">
+          <h3>Kwartyl <a class="term__anchor" href="#kwartyl" aria-label="Odnośnik do pojęcia: Kwartyl">#</a></h3>
+          <p>Wartości dzielące uporządkowany zbiór na cztery równe części. Pierwszy kwartyl odcina 25% najniższych obserwacji, drugi to mediana, a trzeci — 75%.</p>
+        </article>
+        <article class="term" id="histogram">
+          <h3>Histogram <a class="term__anchor" href="#histogram" aria-label="Odnośnik do pojęcia: Histogram">#</a></h3>
+          <p>Wykres słupkowy pokazujący, jak często obserwacje wpadają w kolejne przedziały wartości. Służy do oceny kształtu rozkładu, w tym jego normalności.</p>
+        </article>
+        <article class="term" id="zmienne-ilosciowe-jakosciowe">
+          <h3>Zmienne ilościowe i jakościowe <a class="term__anchor" href="#zmienne-ilosciowe-jakosciowe" aria-label="Odnośnik do pojęcia: Zmienne ilościowe i jakościowe">#</a></h3>
+          <p>Zmienne ilościowe wyrażają liczbę (np. wiek, ciśnienie), a jakościowe — kategorię (np. płeć, grupa krwi). Ten podział decyduje o doborze metody statystycznej.</p>
+        </article>
+        <article class="term" id="zmienna-zalezna-niezalezna">
+          <h3>Zmienna zależna i niezależna <a class="term__anchor" href="#zmienna-zalezna-niezalezna" aria-label="Odnośnik do pojęcia: Zmienna zależna i niezależna">#</a></h3>
+          <p>Zmienna zależna to mierzony wynik, który chcemy wyjaśnić; zmienne niezależne to czynniki, których wpływ na wynik badamy.</p>
+        </article>
+      </div>
+
+      <p class="glossary-empty" id="glossary-empty" hidden>
+        Nie znaleźliśmy takiego pojęcia. <a class="arrow-link" href="kontakt.html">Zapytaj nas o nie <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--mist">
+    <div class="container split">
+      <figure class="figure reveal">
+        <img loading="lazy" decoding="async" src="assets/img/raport-statystyka.jpg" width="638" height="470"
+             alt="Fragment raportu: histogram z krzywą rozkładu normalnego, statystyki opisowe i przedziały ufności">
+        <figcaption><b>Ryc. 1.</b> Fragment rzeczywistego opracowania — statystyki opisowe,
+          przedziały ufności i wykres ramkowy.</figcaption>
+      </figure>
+      <div class="split__body reveal" data-delay="1">
+        <p class="eyebrow">Jak wygląda raport</p>
+        <h2>Wyniki, które da się przeczytać</h2>
+        <p>
+          Każde opracowanie zawiera tabele, wykresy i wyniki testów — zawsze wraz z opisem
+          słownym i interpretacją. Dzięki temu w pracy nie trafia sam „zrzut z programu”,
+          tylko gotowy, spójny rozdział wyników.
+        </p>
+        <ul class="checklist">
+          <li>Statystyki opisowe, przedziały ufności i weryfikacja założeń.</li>
+          <li>Dobór testu do rodzaju zmiennych i rozkładu danych.</li>
+          <li>Interpretacja wyników w języku Twojej dyscypliny.</li>
+        </ul>
+        <div class="btn-row">
+          <a class="btn" href="kontakt.html">Poproś o przykład realizacji</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container">
+      <div class="cta-band reveal">
+        <div>
+          <h2>Masz pytanie o konkretną metodę?</h2>
+          <p>Napisz — odpowiemy, czy dana metoda pasuje do Twoich danych i co trzeba przygotować.</p>
+        </div>
+        <div class="btn-row">
+          <a class="btn" href="kontakt.html">Zadaj pytanie</a>
+          <a class="btn btn--onDark" href="tel:+48609222466">609 222 466</a>
+          <a class="btn btn--onDark" href="https://wa.me/48609222466" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img loading="lazy" decoding="async" src="assets/img/logo-white.png" alt="StatPomoc" width="203" height="112">
+        <p>
+          Analizy i opracowania statystyczne do prac dyplomowych, doktorskich, habilitacyjnych
+          oraz publikacji naukowych. Działamy w 100% online — w całej Polsce.
+        </p>
+        <div class="social">
+          <a href="https://www.facebook.com/statpomoc/" target="_blank" rel="noopener noreferrer" aria-label="StatPomoc na Facebooku"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12Z"/></svg></a>
+          <a href="https://share.google/Pc4OFo4ldtyr2BmOv" target="_blank" rel="noopener noreferrer" aria-label="StatPomoc w Google — opinie i wizytówka"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5l2.9 6.3 6.6.8-5 4.6 1.4 6.6L12 17.6l-5.9 3.2 1.4-6.6-5-4.6 6.6-.8L12 2.5Z"/></svg></a>
+          <a href="https://wa.me/48609222466" target="_blank" rel="noopener noreferrer" aria-label="Napisz przez WhatsApp: 609 222 466"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.5-.7L3 21l1.9-5A8.1 8.1 0 0 1 4 11.5 8.4 8.4 0 0 1 12.5 3 8.4 8.4 0 0 1 21 11.5Z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg></a>
+          <a href="mailto:stat.pomoc@gmail.com" aria-label="Napisz e-mail do StatPomoc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="tel:+48609222466">609 222 466</a></li>
+          <li><a href="mailto:stat.pomoc@gmail.com">stat.pomoc@gmail.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Dane firmy</h4>
+        <ul>
+          <li>StatPomoc</li>
+          <li>NIP: 5311622025</li>
+          <li>REGON: 341548194</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p>&copy; <span id="year">2026</span> StatPomoc. Wszelkie prawa zastrzeżone.</p>
+      <p class="footer-legal__note">Pełna poufność — danych i materiałów nie udostępniamy osobom trzecim.</p>
+      <p><a href="polityka-prywatnosci.html">Polityka prywatności</a></p>
+    </div>
+  </div>
+</footer>
+
+
+<div class="mobile-cta" aria-label="Szybki kontakt">
+  <a class="mobile-cta__btn" href="tel:+48609222466">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3h3l1.5 4-2 1.4a12 12 0 0 0 5.6 5.6L16 12l4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4 6.2 2 2 0 0 1 6.5 3Z"/></svg>
+    Zadzwoń
+  </a>
+  <a class="mobile-cta__btn mobile-cta__btn--wa" href="https://wa.me/48609222466" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.5-.7L3 21l1.9-5A8.1 8.1 0 0 1 4 11.5 8.4 8.4 0 0 1 12.5 3 8.4 8.4 0 0 1 21 11.5Z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>
+    WhatsApp
+  </a>
+  <a class="mobile-cta__btn mobile-cta__btn--primary" href="kontakt.html">Bezpłatna wycena</a>
+</div>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
