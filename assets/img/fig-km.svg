@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 400" width="620" height="400" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, &#39;Segoe UI&#39;, Arial, sans-serif">
+<title id="t">Krzywe przeżycia Kaplana-Meiera dla dwóch grup</title>
+<desc id="d">Wykres schodkowy odsetka obserwacji bez zdarzenia w kolejnych tygodniach po zabiegu; grupa A utrzymuje się na poziomie 70 procent, grupa B spada do 40 procent.</desc>
+<rect width="620" height="400" fill="#FFFFFF"></rect>
+<line x1="56" y1="297.4" x2="528.0" y2="297.4" stroke="#E7ECF1" stroke-width="1"></line>
+<text x="46.0" y="301.4" fill="#54606E" font-size="11" text-anchor="end" font-weight="400" letter-spacing="0">40%</text>
+<line x1="56" y1="252.9" x2="528.0" y2="252.9" stroke="#E7ECF1" stroke-width="1"></line>
+<text x="46.0" y="256.9" fill="#54606E" font-size="11" text-anchor="end" font-weight="400" letter-spacing="0">50%</text>
+<line x1="56" y1="208.3" x2="528.0" y2="208.3" stroke="#E7ECF1" stroke-width="1"></line>
+<text x="46.0" y="212.3" fill="#54606E" font-size="11" text-anchor="end" font-weight="400" letter-spacing="0">60%</text>
+<line x1="56" y1="163.7" x2="528.0" y2="163.7" stroke="#E7ECF1" stroke-width="1"></line>
+<text x="46.0" y="167.7" fill="#54606E" font-size="11" text-anchor="end" font-weight="400" letter-spacing="0">70%</text>
+<line x1="56" y1="119.1" x2="528.0" y2="119.1" stroke="#E7ECF1" stroke-width="1"></line>
+<text x="46.0" y="123.1" fill="#54606E" font-size="11" text-anchor="end" font-weight="400" letter-spacing="0">80%</text>
+<line x1="56" y1="74.6" x2="528.0" y2="74.6" stroke="#E7ECF1" stroke-width="1"></line>
+<text x="46.0" y="78.6" fill="#54606E" font-size="11" text-anchor="end" font-weight="400" letter-spacing="0">90%</text>
+<line x1="56" y1="30.0" x2="528.0" y2="30.0" stroke="#E7ECF1" stroke-width="1"></line>
+<text x="46.0" y="34.0" fill="#54606E" font-size="11" text-anchor="end" font-weight="400" letter-spacing="0">100%</text>
+<line x1="56" y1="342.0" x2="528.0" y2="342.0" stroke="#C2CBD5" stroke-width="1"></line>
+<line x1="56.0" y1="342.0" x2="56.0" y2="347.0" stroke="#C2CBD5" stroke-width="1"></line>
+<text x="56.0" y="362.0" fill="#54606E" font-size="11" text-anchor="middle" font-weight="400" letter-spacing="0">1</text>
+<line x1="141.8" y1="342.0" x2="141.8" y2="347.0" stroke="#C2CBD5" stroke-width="1"></line>
+<text x="141.8" y="362.0" fill="#54606E" font-size="11" text-anchor="middle" font-weight="400" letter-spacing="0">3</text>
+<line x1="227.6" y1="342.0" x2="227.6" y2="347.0" stroke="#C2CBD5" stroke-width="1"></line>
+<text x="227.6" y="362.0" fill="#54606E" font-size="11" text-anchor="middle" font-weight="400" letter-spacing="0">5</text>
+<line x1="313.5" y1="342.0" x2="313.5" y2="347.0" stroke="#C2CBD5" stroke-width="1"></line>
+<text x="313.5" y="362.0" fill="#54606E" font-size="11" text-anchor="middle" font-weight="400" letter-spacing="0">7</text>
+<line x1="399.3" y1="342.0" x2="399.3" y2="347.0" stroke="#C2CBD5" stroke-width="1"></line>
+<text x="399.3" y="362.0" fill="#54606E" font-size="11" text-anchor="middle" font-weight="400" letter-spacing="0">9</text>
+<line x1="485.1" y1="342.0" x2="485.1" y2="347.0" stroke="#C2CBD5" stroke-width="1"></line>
+<text x="485.1" y="362.0" fill="#54606E" font-size="11" text-anchor="middle" font-weight="400" letter-spacing="0">11</text>
+<text x="292.0" y="384.0" fill="#54606E" font-size="11" text-anchor="middle" font-weight="400" letter-spacing="0">tydzień obserwacji</text>
+<text x="10.0" y="16.0" fill="#54606E" font-size="11" text-anchor="start" font-weight="400" letter-spacing="0">odsetek bez zdarzenia</text>
+<path d="M 56.0 30.0 H 98.9 V 96.9 H 141.8 V 119.1 H 184.7 V 128.1 H 227.6 V 137.0 H 270.5 V 141.4 H 313.5 V 145.9 H 356.4 V 154.8 H 399.3 V 159.3 H 442.2 V 159.3 H 485.1 V 159.3 H 528.0 V 163.7" fill="none" stroke="#5C9A00" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
+<circle cx="528.0" cy="163.7" r="4" fill="#5C9A00" stroke="#FFFFFF" stroke-width="2"></circle>
+<text x="540.0" y="167.7" fill="#131922" font-size="11" text-anchor="start" font-weight="600" letter-spacing="0">Grupa A — 70%</text>
+<path d="M 56.0 30.0 H 98.9 V 163.7 H 141.8 V 186.0 H 184.7 V 199.4 H 227.6 V 221.7 H 270.5 V 235.0 H 313.5 V 252.9 H 356.4 V 261.8 H 399.3 V 275.1 H 442.2 V 288.5 H 485.1 V 297.4 H 528.0 V 297.4" fill="none" stroke="#2563A8" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
+<circle cx="528.0" cy="297.4" r="4" fill="#2563A8" stroke="#FFFFFF" stroke-width="2"></circle>
+<text x="540.0" y="301.4" fill="#131922" font-size="11" text-anchor="start" font-weight="600" letter-spacing="0">Grupa B — 40%</text>
+<line x1="332" y1="16" x2="348" y2="16" stroke="#5C9A00" stroke-width="2" stroke-linecap="round"></line>
+<text x="354.0" y="20.0" fill="#54606E" font-size="11" text-anchor="start" font-weight="400" letter-spacing="0">Grupa A</text>
+<line x1="428" y1="16" x2="444" y2="16" stroke="#2563A8" stroke-width="2" stroke-linecap="round"></line>
+<text x="450.0" y="20.0" fill="#54606E" font-size="11" text-anchor="start" font-weight="400" letter-spacing="0">Grupa B</text>
+</svg>

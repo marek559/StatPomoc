@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 380" width="620" height="380" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, &#39;Segoe UI&#39;, Arial, sans-serif">
+<title id="t">Rozkład zmiennej z dopasowaną krzywą normalną</title>
+<desc id="d">Histogram obserwacji z nałożoną krzywą rozkładu normalnego, zaznaczoną średnią oraz przedziałem jednego odchylenia standardowego.</desc>
+<rect width="620" height="380" fill="#131922"></rect>
+<line x1="52" y1="92.8" x2="596" y2="92.8" stroke="#222B37" stroke-width="1"></line>
+<line x1="52" y1="151.6" x2="596" y2="151.6" stroke="#222B37" stroke-width="1"></line>
+<line x1="52" y1="210.4" x2="596" y2="210.4" stroke="#222B37" stroke-width="1"></line>
+<line x1="52" y1="269.2" x2="596" y2="269.2" stroke="#222B37" stroke-width="1"></line>
+<rect x="244.0" y="34" width="160.0" height="294" fill="#8CE902" opacity="0.10"></rect>
+<rect x="53.0" y="322.4" width="30.0" height="5.6" rx="2" fill="#66A80F" opacity="0.55"></rect>
+<rect x="85.0" y="322.4" width="30.0" height="5.6" rx="2" fill="#66A80F" opacity="0.55"></rect>
+<rect x="117.0" y="311.2" width="30.0" height="16.8" rx="2" fill="#66A80F" opacity="0.55"></rect>
+<rect x="149.0" y="291.0" width="30.0" height="37.0" rx="2" fill="#66A80F" opacity="0.55"></rect>
+<rect x="181.0" y="246.6" width="30.0" height="81.4" rx="2" fill="#66A80F" opacity="0.55"></rect>
+<rect x="213.0" y="199.1" width="30.0" height="128.9" rx="2" fill="#66A80F" opacity="0.55"></rect>
+<rect x="245.0" y="119.4" width="30.0" height="208.6" rx="2" fill="#66A80F" opacity="0.55"></rect>
+<rect x="277.0" y="55.0" width="30.0" height="273.0" rx="2" fill="#66A80F" opacity="0.55"></rect>
+<rect x="309.0" y="52.0" width="30.0" height="276.0" rx="2" fill="#66A80F" opacity="0.55"></rect>
+<rect x="341.0" y="57.6" width="30.0" height="270.4" rx="2" fill="#66A80F" opacity="0.55"></rect>
+<rect x="373.0" y="133.7" width="30.0" height="194.3" rx="2" fill="#66A80F" opacity="0.55"></rect>
+<rect x="405.0" y="186.8" width="30.0" height="141.2" rx="2" fill="#66A80F" opacity="0.55"></rect>
+<rect x="437.0" y="252.8" width="30.0" height="75.2" rx="2" fill="#66A80F" opacity="0.55"></rect>
+<rect x="469.0" y="288.0" width="30.0" height="40.0" rx="2" fill="#66A80F" opacity="0.55"></rect>
+<rect x="501.0" y="312.7" width="30.0" height="15.3" rx="2" fill="#66A80F" opacity="0.55"></rect>
+<rect x="533.0" y="322.2" width="30.0" height="5.8" rx="2" fill="#66A80F" opacity="0.55"></rect>
+<rect x="565.0" y="322.4" width="30.0" height="5.6" rx="2" fill="#66A80F" opacity="0.55"></rect>
+<polyline points="52.0,327.1 55.4,327.0 58.8,326.8 62.2,326.7 65.6,326.5 69.0,326.2 72.4,326.0 75.8,325.7 79.2,325.4 82.6,325.0 86.0,324.6 89.4,324.2 92.8,323.7 96.2,323.1 99.6,322.5 103.0,321.8 106.4,321.0 109.8,320.2 113.2,319.3 116.6,318.2 120.0,317.1 123.4,315.9 126.8,314.5 130.2,313.0 133.6,311.4 137.0,309.7 140.4,307.8 143.8,305.7 147.2,303.5 150.6,301.1 154.0,298.5 157.4,295.8 160.8,292.8 164.2,289.7 167.6,286.3 171.0,282.8 174.4,279.0 177.8,275.0 181.2,270.7 184.6,266.3 188.0,261.6 191.4,256.7 194.8,251.6 198.2,246.2 201.6,240.6 205.0,234.8 208.4,228.9 211.8,222.7 215.2,216.3 218.6,209.8 222.0,203.1 225.4,196.2 228.8,189.3 232.2,182.2 235.6,175.1 239.0,167.8 242.4,160.6 245.8,153.3 249.2,146.1 252.6,138.9 256.0,131.8 259.4,124.7 262.8,117.8 266.2,111.1 269.6,104.5 273.0,98.2 276.4,92.1 279.8,86.2 283.2,80.7 286.6,75.5 290.0,70.7 293.4,66.2 296.8,62.2 300.2,58.6 303.6,55.4 307.0,52.7 310.4,50.4 313.8,48.6 317.2,47.4 320.6,46.6 324.0,46.4 327.4,46.6 330.8,47.4 334.2,48.6 337.6,50.4 341.0,52.7 344.4,55.4 347.8,58.6 351.2,62.2 354.6,66.2 358.0,70.7 361.4,75.5 364.8,80.7 368.2,86.2 371.6,92.1 375.0,98.2 378.4,104.5 381.8,111.1 385.2,117.8 388.6,124.7 392.0,131.8 395.4,138.9 398.8,146.1 402.2,153.3 405.6,160.6 409.0,167.8 412.4,175.1 415.8,182.2 419.2,189.3 422.6,196.2 426.0,203.1 429.4,209.8 432.8,216.3 436.2,222.7 439.6,228.9 443.0,234.8 446.4,240.6 449.8,246.2 453.2,251.6 456.6,256.7 460.0,261.6 463.4,266.3 466.8,270.7 470.2,275.0 473.6,279.0 477.0,282.8 480.4,286.3 483.8,289.7 487.2,292.8 490.6,295.8 494.0,298.5 497.4,301.1 500.8,303.5 504.2,305.7 507.6,307.8 511.0,309.7 514.4,311.4 517.8,313.0 521.2,314.5 524.6,315.9 528.0,317.1 531.4,318.2 534.8,319.3 538.2,320.2 541.6,321.0 545.0,321.8 548.4,322.5 551.8,323.1 555.2,323.7 558.6,324.2 562.0,324.6 565.4,325.0 568.8,325.4 572.2,325.7 575.6,326.0 579.0,326.2 582.4,326.5 585.8,326.7 589.2,326.8 592.6,327.0 596.0,327.1" fill="none" stroke="#8CE902" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></polyline>
+<line x1="324.0" y1="38" x2="324.0" y2="328.0" stroke="#8B98A7" stroke-width="1.5" opacity="0.75"></line>
+<text x="324.0" y="22.0" fill="#8B98A7" font-size="12" text-anchor="middle" font-weight="400" letter-spacing="0">x̄</text>
+<line x1="52" y1="328" x2="596" y2="328" stroke="#39434F" stroke-width="1"></line>
+<line x1="164.0" y1="328" x2="164.0" y2="333" stroke="#39434F" stroke-width="1"></line>
+<text x="164.0" y="348.0" fill="#8B98A7" font-size="11" text-anchor="middle" font-weight="400" letter-spacing="0">−2 SD</text>
+<line x1="244.0" y1="328" x2="244.0" y2="333" stroke="#39434F" stroke-width="1"></line>
+<text x="244.0" y="348.0" fill="#8B98A7" font-size="11" text-anchor="middle" font-weight="400" letter-spacing="0">−1 SD</text>
+<line x1="404.0" y1="328" x2="404.0" y2="333" stroke="#39434F" stroke-width="1"></line>
+<text x="404.0" y="348.0" fill="#8B98A7" font-size="11" text-anchor="middle" font-weight="400" letter-spacing="0">+1 SD</text>
+<line x1="484.0" y1="328" x2="484.0" y2="333" stroke="#39434F" stroke-width="1"></line>
+<text x="484.0" y="348.0" fill="#8B98A7" font-size="11" text-anchor="middle" font-weight="400" letter-spacing="0">+2 SD</text>
+<text x="52.0" y="22.0" fill="#8B98A7" font-size="11" text-anchor="start" font-weight="400" letter-spacing="0">liczba obserwacji</text>
+</svg>
