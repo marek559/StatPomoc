@@ -128,17 +128,20 @@ awatarem, gwiazdkami i logo Google.
 
 1. Konto na <https://www.trustindex.io/> → połącz wizytówkę Google
    (`https://share.google/Pc4OFo4ldtyr2BmOv`).
-2. Wybierz styl widgetu (polecany „Slider” albo „Grid”) i zapisz.
-3. Trustindex pokaże snippet `…loader.js?a1b2c3d4e5f6`. Skopiuj **sam ciąg po znaku `?`**.
-4. W `index.html` podmień placeholder:
+2. Wybierz styl widgetu i zapisz.
+3. Trustindex pokaże gotowy tag `<script … src="…loader-cert.js?ID"></script>`.
+   Skopiuj **cały ten tag**.
+4. W `index.html` (sekcja `#opinie`) podmień skrypt w kontenerze widgetu:
 
    ```html
-   <div class="reviews-embed reveal" data-delay="1" data-trustindex="a1b2c3d4e5f6"></div>
+   <div class="reviews-embed reveal" data-delay="1">
+     <script defer async src="https://cdn.trustindex.io/loader-cert.js?TWOJE-ID"></script>
+   </div>
    ```
 
-Skrypt strony doładuje widget sam. Dopóki ID nie jest wpisane, sekcja pokazuje
-tylko tekst i przyciski do Google/Facebooka, a **do Trustindeksu nie leci żadne
-zapytanie** — placeholder nie generuje ruchu ani błędów w konsoli.
+Widget renderuje się w miejscu tagu `<script>`. Jeśli usuniesz skrypt z kontenera,
+sekcja pokazuje tylko tekst i przyciski do Google/Facebooka, a **do Trustindeksu
+nie leci żadne zapytanie**.
 
 Uwaga RODO: widget to skrypt firmy trzeciej. Odpowiedni akapit jest już
 w `polityka-prywatnosci.html` (sekcja „Widget z opiniami”) — jeśli zdecydujesz się
@@ -228,7 +231,7 @@ Konfiguracja:
 
 - [x] Formspree podłączony (`xdenkdpp`). **Zostaje: wysłać wiadomość testową
       i kliknąć link potwierdzający ze skrzynki** → sekcja 3.
-- [x] Trustindex podłączony i działa (`b9bc5587820e72761966ffac151`).
+- [x] Trustindex podłączony (widget certyfikatu `300099e81e342897d1967d1d05a`).
 - [ ] Zastąpić robocze „Zrealizowane projekty” prawdziwymi, anonimowymi wpisami → sekcja 4a.
 - [ ] (Opcjonalnie) Włączyć analitykę: token w `main.js` + odkomentować akapit w polityce → sekcja 4a.
 

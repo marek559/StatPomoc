@@ -224,19 +224,9 @@
   }
 
   /* ------------------------------------------- Opinie Google (Trustindex)
-     Skrypt widgetu wstrzykujemy dopiero wtedy, gdy w HTML wpisano prawdziwe ID —
-     dzięki temu niewypełniony placeholder nie generuje zapytania do CDN. */
-  var reviews = document.querySelector('[data-trustindex]');
-  if (reviews) {
-    var widgetId = (reviews.getAttribute('data-trustindex') || '').trim();
-    if (widgetId && widgetId.indexOf('WKLEJ-ID') === -1) {
-      var ti = document.createElement('script');
-      ti.src = 'https://cdn.trustindex.io/loader.js?' + widgetId;
-      ti.async = true;
-      ti.defer = true;
-      reviews.appendChild(ti);
-    }
-  }
+     Widget osadzamy teraz bezpośrednio w HTML (sekcja #opinie w index.html)
+     gotowym tagiem <script> z panelu trustindex.io — main.js nie doładowuje
+     go już dynamicznie. */
 
   /* ============================================== ANALITYKA (opcjonalna)
      Statystyki odwiedzin bez plików cookies. Aktywacja polega na wpisaniu
