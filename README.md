@@ -220,6 +220,9 @@ Wszystkie teksty są wprost w plikach `.html` — wystarczy edytor tekstu
 - Zmieniasz `<title>` lub `description`? Zmień też `og:title` / `og:description`
   (te same teksty; w `og:title` bez końcówki „| StatPomoc”).
 - Po większej zmianie treści podstrony zaktualizuj jej `lastmod` w `sitemap.xml`.
+- Ikony (`favicon.ico`, `assets/img/favicon-32.png`, `apple-touch-icon.png`, `favicon-512.png`):
+  po podmianie plików zwiększ numer `?v=` w linkach do ikon we wszystkich plikach `.html`
+  (obecnie `?v=2`) — inaczej przeglądarki długo pokazują starą ikonę.
 - Kolory i typografia to zmienne CSS na początku `assets/css/style.css`
   (sekcja `:root`) — zmiana jednej wartości przebudowuje wygląd całego serwisu.
 
