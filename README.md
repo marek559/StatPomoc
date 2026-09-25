@@ -1,72 +1,75 @@
-# StatPomoc — statyczna wersja serwisu
+# StatPomoc — strona statpomoc.org.pl
 
-Kompletna, gotowa do wgrania wersja strony **statpomoc.org.pl** bez WordPressa,
-bez bazy danych i bez PHP. Same pliki HTML, CSS, JS i obrazy.
+Statyczna strona **statpomoc.org.pl**: bez WordPressa, bez bazy danych i bez PHP.
+Same pliki HTML, CSS, JS i obrazy, hostowane na **GitHub Pages** z repozytorium
+`marek559/StatPomoc`. Treści przeniesiono ze starego serwisu WordPress.
 
-Treści pochodzą z bazy danych starego serwisu (backup UpdraftPlus
-`backup_2022-03-24-1938_StatPomoc…-db.gz`), obrazy — z katalogu `wp-content/uploads`.
+> **Uwaga:** ten plik jest publiczny — GitHub Pages udostępnia go pod adresem
+> `https://statpomoc.org.pl/README.md`. Nie wpisuj tu niczego, czego nie chcesz
+> pokazywać (adresu, haseł, danych klientów).
+
+Stan opisu: 25.09.2026.
 
 ---
 
 ## 1. Struktura katalogu
 
 ```
-statpomoc-static/
+StatPomoc/
 ├── index.html                  strona główna
 ├── o-nas.html                  o firmie, misja, dyscypliny
-├── oferta.html                 zakres usług
-├── cennik.html                 zasady wyceny + 7 etapów współpracy
-├── samouczek.html              słownik 17 pojęć + wyszukiwarka
+├── oferta.html                 zakres usług + tabela metod
+├── cennik.html                 zasady wyceny, 7 etapów współpracy, FAQ
+├── samouczek.html              słownik 42 pojęć + wyszukiwarka
 ├── kontakt.html                dane kontaktowe, formularz (Formspree)
-├── polityka-prywatnosci.html   RODO / brak cookies
-├── 404.html                    strona błędu
-├── .htaccess                   301 ze starych adresów, HTTPS, cache, nagłówki
+├── polityka-prywatnosci.html   RODO, cookies i zgoda
+├── 404.html                    strona błędu (noindex)
+│
+├── home/  o-nas/  oferta/  cennik/  samouczek/  kontakt/
+├── statystyka-w-praktyce/  statystyka1/
+│                               przekierowania starych adresów WordPressa (patrz 2a)
+│
+├── CNAME                       domena dla GitHub Pages — nie usuwać
+├── google8693bf3f5029bb57.html plik weryfikacyjny Google Search Console — nie usuwać
 ├── robots.txt
 ├── sitemap.xml
 ├── site.webmanifest
 ├── favicon.ico
 └── assets/
     ├── css/style.css           jeden arkusz stylów (system projektowy)
-    ├── js/main.js              menu, animacje, liczniki, wyszukiwarka, formularz
+    ├── js/main.js              menu, animacje, liczniki, wyszukiwarka, formularz,
+    │                           analityka, zgoda na cookies (Google Ads)
     └── img/                    logo, favicony, figury SVG, obrazek OG, zrzut raportu
 ```
 
-Cały serwis waży ok. **450 KB**. Zdjęcia stockowe ze starej strony nie są używane —
-leżą w katalogu `../zdjecia-zapasowe/` (poza katalogiem publikacji), gdyby kiedyś się przydały.
+Cały serwis waży ok. **380 KB**. Nie ma szablonów ani systemu budowania.
 
-## 2. Wdrożenie na serwer
+## 2. Publikacja (GitHub Pages)
 
-1. Zrób kopię obecnego katalogu `public_html` (na wszelki wypadek).
-2. **Usuń** wszystkie pliki starego WordPressa z katalogu strony
-   (`wp-admin/`, `wp-includes/`, `wp-content/`, `wp-*.php`, `xmlrpc.php`,
-   `.maintenance`, `.user.ini`, `wordfence-waf.php`) — razem ze starym `.htaccess`.
-3. Wgraj **zawartość** katalogu `statpomoc-static/` do katalogu głównego strony
-   (tak, aby `index.html` znalazł się bezpośrednio w `public_html`).
-4. Sprawdź, czy przesłał się plik `.htaccess` — programy FTP domyślnie ukrywają
-   pliki zaczynające się od kropki. Bez niego stare linki z Google zwrócą 404.
-5. Wejdź na stronę i sprawdź: menu, telefon, e-mail, wysyłkę formularza
-   oraz stare adresy (`statpomoc.org.pl/oferta/` ma przenieść na `/oferta.html`).
+Strona publikuje się sama z gałęzi `main` repozytorium `marek559/StatPomoc`.
 
-Baza danych MySQL nie jest już potrzebna — można ją zachować jako archiwum,
-ale strona jej nie używa.
+1. Zmień pliki w folderze repozytorium.
+2. W **GitHub Desktop**: wpisz opis zmian → **Commit to main** → **Push origin**.
+3. Po 1–5 minutach zmiany są na stronie (postęp widać na GitHubie w zakładce
+   **Actions** → „pages build and deployment”).
 
-### 2a. Co robi `.htaccess`
+Domena i HTTPS:
 
-Plik zastępuje w całości stary `.htaccess` WordPressa. Zawiera:
+- Plik `CNAME` zawiera `statpomoc.org.pl` — **nie zmieniaj go i nie usuwaj**,
+  bez niego strona przestanie działać pod domeną.
+- W repozytorium na GitHubie: **Settings → Pages** — domena `statpomoc.org.pl`
+  i zaznaczone **Enforce HTTPS**.
+- `http://` i `www.` przenoszą (301) na `https://statpomoc.org.pl/` — robi to GitHub.
 
-| Sekcja | Działanie |
-|---|---|
-| 1 | jeden kanoniczny adres — wymuszenie `https://` i wersji bez `www` |
-| 2 | **przekierowania 301** ze wszystkich starych adresów (lista niżej) |
-| 3 | ładne adresy: `/oferta` działa tak samo jak `/oferta.html` |
-| 4 | status 410 dla pozostałości WordPressa — szybsze usunięcie z indeksu Google i odcięcie prób logowania na `/wp-login.php` |
-| 5 | blokada pobierania plików `.md`, `.sql`, `.gz`, kopii zapasowych |
-| 6 | nagłówki bezpieczeństwa (HSTS i CSP zostawione zakomentowane — patrz komentarze w pliku) |
-| 7–8 | kompresja + cache: HTML bez cache, CSS/JS/obrazy na rok |
-| 9 | typy MIME dla `.svg` i `.webmanifest` |
+GitHub Pages **nie obsługuje `.htaccess` ani PHP**. Przekierowania, nagłówki
+i cache ustawia GitHub; stare adresy przekierowujemy folderami (patrz 2a).
 
-Lista starych adresów odtworzona z tabeli `wpiq_posts` w kopii bazy
-(struktura odnośników `/%postname%/`):
+### 2a. Przekierowania starych adresów
+
+Stary WordPress miał adresy w stylu `/oferta/`. Każdy z nich ma w repozytorium
+folder z plikiem `index.html`, który od razu przenosi na nowy adres
+(`<meta http-equiv="refresh" content="0; url=…">` + `canonical`).
+Google traktuje takie natychmiastowe przekierowanie jak stałe (301).
 
 | Stary adres | Nowy |
 |---|---|
@@ -79,79 +82,74 @@ Lista starych adresów odtworzona z tabeli `wpiq_posts` w kopii bazy
 | `/statystyka-w-praktyce/` | `/samouczek.html` (wpis blogowy bez odpowiednika) |
 | `/statystyka1/` | `/samouczek.html` (wpis blogowy bez odpowiednika) |
 
-**Jeżeli strona przestanie się otwierać po wgraniu pliku** — najprawdopodobniej
-hosting nie ma jeszcze aktywnego certyfikatu SSL. Zakomentuj wtedy pierwszą regułę
-w sekcji 1 (dopisz `#` na początku jej trzech linii) i włącz ją ponownie,
-gdy certyfikat zacznie działać.
+Nowe przekierowanie: skopiuj dowolny z tych folderów, nadaj mu nazwę starego adresu
+i podmień nowy adres w trzech miejscach pliku (`canonical`, `refresh`, link w treści).
+
+Pozostałości WordPressa (`/wp-login.php`, `/wp-admin/`, `/wp-content/…`) zwracają
+404 — to normalne, Google z czasem usunie je z indeksu.
 
 ## 3. Formularz kontaktowy (Formspree)
 
-Formularz wysyła wiadomość **naprawdę** — w tle, bez przeładowania strony
-i bez otwierania programu pocztowego. Pośredniczy w tym Formspree
-(plan darmowy: 50 wiadomości miesięcznie).
+Formularz wysyła wiadomość w tle, bez przeładowania strony i bez otwierania
+programu pocztowego. Pośredniczy Formspree (plan darmowy: 50 wiadomości miesięcznie).
 
-**Stan: podłączony.** Endpoint `https://formspree.io/f/xdenkdpp` jest już wpisany
-w `kontakt.html`. Obsługę wysyłki (fetch, komunikaty, tryb zapasowy) robi
-`assets/js/main.js` — bez żadnej zewnętrznej biblioteki, więc strona pozostaje
-w 100% bez skryptów firm trzecich.
+**Stan: podłączony.** Endpoint `https://formspree.io/f/xdenkdpp` jest wpisany
+w `kontakt.html`, wysyłkę (fetch, komunikaty, tryb zapasowy) robi `assets/js/main.js`.
 
-**Zostało tylko jedno — potwierdzenie skrzynki (raz):**
-
-1. Wejdź na wdrożoną stronę `kontakt.html` i wyślij jedną wiadomość testową.
-2. Formspree przyśle na `stat.pomoc@gmail.com` link „Confirm email”. Kliknij go —
-   dopóki tego nie zrobisz, Formspree wstrzymuje dostarczanie wiadomości.
-
-Zmiana skrzynki lub formularza w przyszłości: podmień część po `/f/` w atrybucie
-`action` w `kontakt.html` na nowy identyfikator z panelu Formspree.
-
-**Jak to się zachowuje:**
+**Jednorazowo:** wyślij z `kontakt.html` wiadomość testową. Formspree przyśle na
+`stat.pomoc@gmail.com` link „Confirm email” — kliknij go, inaczej Formspree
+wstrzymuje dostarczanie wiadomości.
 
 | Sytuacja | Efekt |
 |---|---|
 | JS włączony (norma) | wysyłka w tle, zielony komunikat „Dziękujemy — wiadomość dotarła” |
 | JS wyłączony | zwykły POST, użytkownik ląduje na stronie z podziękowaniem Formspree |
 | Błąd sieci / limit planu | czerwony komunikat z adresem e-mail i numerem telefonu |
-| Placeholder zamiast ID | tryb zapasowy `mailto` — otwiera program pocztowy (gdyby ktoś kiedyś usunął ID) |
+| Placeholder zamiast ID | tryb zapasowy `mailto` — otwiera program pocztowy |
 
-Formularz zawiera ukryte pole `_gotcha` (pułapka na boty) oraz `_subject`
-(temat wiadomości). Gdyby zaczął przychodzić spam — w panelu Formspree
-włącz `Settings → Spam protection → reCAPTCHA`.
-
-Alternatywy o tym samym interfejsie: FormSubmit, Getform, Web3Forms —
-wystarczy podmienić adres w `action`.
+Formularz ma ukryte pole `_gotcha` (pułapka na boty) i `_subject` (temat wiadomości).
+Gdyby przychodził spam: panel Formspree → `Settings → Spam protection → reCAPTCHA`.
+Zmiana formularza: podmień część po `/f/` w atrybucie `action` w `kontakt.html`.
 
 ## 3a. Opinie Google (Trustindex)
 
-Sekcja „Opinie” na stronie głównej jest przygotowana pod widget **Trustindex**,
-który pobiera prawdziwe opinie z wizytówki Google i pokazuje je z nazwiskiem,
-awatarem, gwiazdkami i logo Google.
+Sekcja „Opinie” na stronie głównej pokazuje prawdziwe opinie z wizytówki Google
+przez widget **Trustindex**. **Stan: podłączony** — tag widgetu jest w `index.html`
+(sekcja `#opinie`):
 
-1. Konto na <https://www.trustindex.io/> → połącz wizytówkę Google
-   (`https://share.google/Pc4OFo4ldtyr2BmOv`).
-2. Wybierz styl widgetu i zapisz.
-3. Trustindex pokaże gotowy tag `<script … src="…loader-cert.js?ID"></script>`.
-   Skopiuj **cały ten tag**.
-4. W `index.html` (sekcja `#opinie`) podmień skrypt w kontenerze widgetu:
+```html
+<script defer async src="https://cdn.trustindex.io/loader-cert.js?ID-WIDGETU"></script>
+```
 
-   ```html
-   <div class="reviews-embed reveal" data-delay="1">
-     <script defer async src="https://cdn.trustindex.io/loader-cert.js?TWOJE-ID"></script>
-   </div>
-   ```
+Zmiana widgetu: w panelu trustindex.io skopiuj nowy tag i podmień go w tym miejscu.
+Po usunięciu tagu sekcja pokazuje tylko tekst i przyciski do Google/Facebooka,
+a do Trustindeksu nie leci żadne zapytanie. Widget to skrypt firmy trzeciej —
+opisuje go akapit „Widget z opiniami” w `polityka-prywatnosci.html`.
 
-Widget renderuje się w miejscu tagu `<script>`. Jeśli usuniesz skrypt z kontenera,
-sekcja pokazuje tylko tekst i przyciski do Google/Facebooka, a **do Trustindeksu
-nie leci żadne zapytanie**.
+## 3b. Analityka i zgoda na cookies
 
-Uwaga RODO: widget to skrypt firmy trzeciej. Odpowiedni akapit jest już
-w `polityka-prywatnosci.html` (sekcja „Widget z opiniami”) — jeśli zdecydujesz się
-nie uruchamiać Trustindeksu, usuń ten akapit. To samo dotyczy akapitu
-o Formspree w sekcji „Dane przesyłane w formularzu kontaktowym”.
+Wszystko ustawia się w `assets/js/main.js` (sekcje „ANALITYKA” i „GOOGLE ADS”) —
+plików HTML nie trzeba ruszać, bo `main.js` jest wczytywany na każdej podstronie.
+
+| Narzędzie | Stan | Cookies |
+|---|---|---|
+| **Cloudflare Web Analytics** (`CF_TOKEN`) | włączone | nie |
+| **Google Ads** — tag i konwersja „Kontakt” (`GADS_TAG`, `GADS_CONTACT`) | włączone | tylko po zgodzie |
+| **Google Analytics 4** (`GA4_ID`) | wyłączone (puste) | tylko po zgodzie |
+| GoatCounter (`GOATCOUNTER_CODE`) | nieużywane — tylko gdy `CF_TOKEN` jest puste | nie |
+
+- Google Ads działa w trybie **Consent Mode v2**: domyślnie zgoda odmówiona, cookies
+  dopiero po kliknięciu „Akceptuję” w banerze. Wybór zapisuje się w przeglądarce
+  (`localStorage`, klucz `sp-cookie-consent`).
+- Konwersja „Kontakt” jest zgłaszana przy kliknięciu telefonu, WhatsAppa lub e-maila.
+- Włączenie GA4: wpisz Measurement ID (`G-…`) w `GA4_ID` — korzysta z tego samego
+  tagu i tej samej zgody.
+- Każda zmiana dostawcy = aktualizacja `polityka-prywatnosci.html`.
 
 ## 4. Wykresy (figury SVG)
 
-Cztery wykresy w `assets/img/fig-*.svg` narysowano od zera — to zwykłe pliki tekstowe,
-a nie zdjęcia. Otwarte w przeglądarce wyglądają tak samo jak na stronie.
+Cztery wykresy w `assets/img/fig-*.svg` narysowano od zera — to pliki tekstowe,
+a nie zdjęcia.
 
 | Plik | Co przedstawia |
 |---|---|
@@ -160,104 +158,109 @@ a nie zdjęcia. Otwarte w przeglądarce wyglądają tak samo jak na stronie.
 | `fig-km.svg` | krzywe przeżycia Kaplana-Meiera dla dwóch grup |
 | `fig-box.svg` | wykresy pudełkowe trzech grup |
 
-Kolory serii dobrano tak, żeby były rozróżnialne także przy daltonizmie
-(zwalidowane: jasne tło `#5C9A00` + `#2563A8`, ciemne `#66A80F` + `#4A8AD4`).
-Jeśli zdecydujesz się je zmieniać, zmień też podpisy i sprawdź kontrast.
+Kolory serii są rozróżnialne także przy daltonizmie (jasne tło `#5C9A00` + `#2563A8`,
+ciemne `#66A80F` + `#4A8AD4`). Przy zmianie kolorów zmień też podpisy i sprawdź kontrast.
+Podpisy pod wykresami („Ryc. 1.”, „Ryc. 2.”) są w plikach HTML, nie w SVG.
 
-Podpisy pod wykresami („Ryc. 1.”, „Ryc. 2.”) są w plikach HTML, nie w SVG —
-edytuje się je razem z resztą treści.
+## 5. SEO
 
-## 4a. SEO — co jest zrobione i co zostaje do zrobienia ręcznie
+### 5a. Co jest zrobione
 
-**Zrobione w plikach:**
+- Każda strona ma `lang="pl"`, unikalny `<title>` (ok. 50–60 znaków), unikalny
+  `description` (ok. 140–160 znaków), `canonical`, Open Graph i kartę Twittera.
+- Obrazek do udostępnień: `assets/img/og-statpomoc.jpg` (1200×630 JPG — Facebook
+  i LinkedIn nie wyświetlają SVG).
+- `sitemap.xml` — 7 stron publicznych; `robots.txt` — wszystko dozwolone + adres mapy.
+- `404.html` ma `noindex` i nie ma go w mapie witryny.
+- Dane strukturalne (JSON-LD): `ProfessionalService` na stronie głównej,
+  `BreadcrumbList` na podstronach, `FAQPage` w cenniku, `DefinedTermSet` w samouczku,
+  `ContactPage` w kontakcie. Wpisane są tylko dane, które widać na stronie
+  (telefon, e-mail, NIP, obszar działania).
+- Każde pojęcie w samouczku ma własną kotwicę, np. `samouczek.html#odchylenie-standardowe`;
+  tabela metod na stronie Oferta linkuje do haseł w samouczku.
+- Przekierowania starych adresów (patrz 2a).
+- Obrazy mają opisy `alt`; logo w nagłówku ma celowo pusty `alt=""`
+  (link ma własny opis i widoczny napis „StatPomoc”).
 
-- Kanoniczne adresy, `robots.txt`, `sitemap.xml`, przekierowania 301 (patrz 2a).
-- Dane strukturalne: `ProfessionalService` z katalogiem usług i adresem
-  (strona główna), `BreadcrumbList` na podstronach, `FAQPage` + widoczna sekcja
-  pytań na cenniku, `DefinedTermSet` z odnośnikiem do każdego pojęcia w słowniku,
-  `ContactPage` z danymi firmy.
-- Obrazek do udostępnień `assets/img/og-statpomoc.jpg` (1200×630 JPG).
-  Wcześniej w `og:image` był plik SVG, którego Facebook i LinkedIn **nie renderują** —
-  udostępniony link wyświetlał się bez grafiki.
-- Karty Twittera (`summary_large_image`).
-- Każde pojęcie w samouczku ma własną kotwicę, np.
-  `samouczek.html#odchylenie-standardowe` — można linkować bezpośrednio z zewnątrz,
-  a Google może pokazać przejścia do sekcji w wynikach.
-- Linkowanie wewnętrzne z tabeli metod (Oferta) do haseł w Samouczku.
-- Logo zmniejszone z 608×336 (109 KB) do 203×112 (5 KB) — było ponad 20× większe,
-  niż potrzeba przy wyświetlaniu 34 px wysokości.
+**Format adresów:** linki, `canonical` i mapa witryny używają `nazwa.html`,
+strona główna to `https://statpomoc.org.pl/`. Adres bez `.html` (np. `/oferta`)
+też działa na GitHub Pages, ale `canonical` wskazuje wersję z `.html`.
 
-**Wymaga Twojej decyzji lub danych:**
+**Adres firmy:** strona celowo nie podaje adresu rejestrowego — tylko obszar
+działania („Bydgoszcz i cała Polska”) oraz `areaServed` w danych strukturalnych.
 
-1. **Google Search Console** — dodaj usługę dla `https://statpomoc.org.pl`,
-   zgłoś `sitemap.xml`, a po 2–3 dniach sprawdź raport „Strony” pod kątem
-   starych adresów. Tam też zobaczysz, czy 301-ki zadziałały.
-2. **Wizytówka Google** — upewnij się, że nazwa, telefon i miasto są identyczne
-   jak na stronie (to najmocniejszy sygnał lokalnego SEO).
-3. **Adres firmy.** Zgodnie z decyzją właściciela strona **nie podaje adresu
-   rejestrowego** — pokazuje tylko obszar działania („Bydgoszcz i cała Polska”)
-   oraz `areaServed` w schematach. Adres z regulaminu (Maksymilianowo) celowo
-   nie jest publikowany. Nic tu nie trzeba zmieniać.
-4. **Analityka — wpięta, do włączenia jedną linią.** Loader jest w
-   `assets/js/main.js` (sekcja „ANALITYKA”). Żeby uruchomić statystyki:
-   - **Cloudflare Web Analytics** (gdy domena jest w Cloudflare): skopiuj token
-     z panelu i wpisz go w `CF_TOKEN` w `main.js`, albo
-   - **GoatCounter** (bez Cloudflare): załóż konto, wpisz swój kod w
-     `GOATCOUNTER_CODE`.
-   Obie opcje są **darmowe i bez cookies**. Puste wartości = analityka wyłączona
-   (żaden skrypt się nie ładuje). Po włączeniu **odkomentuj** akapit
-   „Statystyki odwiedzin” w `polityka-prywatnosci.html`. Uwaga: samego konta
-   u dostawcy nie da się założyć z poziomu plików — to jedyny krok po Twojej stronie.
-5. **Studia przypadków — do uzupełnienia.** Sekcja „Zrealizowane projekty” na
-   stronie głównej zawiera **wpisy robocze** (oznaczone komentarzem w `index.html`).
-   Zastąp je prawdziwymi, **zanonimizowanymi** realizacjami — bez nazwisk i nazw
-   uczelni. Dopóki tego nie zrobisz, nie publikuj tej sekcji jako faktów.
+### 5b. Google Search Console
 
-## 5. Edycja treści
+- Usługa typu **domena** `statpomoc.org.pl`, zweryfikowana rekordem DNS (TXT).
+- **Indeksowanie → Mapy witryn** — zgłoszona mapa: `https://statpomoc.org.pl/sitemap.xml`.
+- Po ważnej zmianie strony: wklej jej adres w górny pasek („Sprawdź dowolny URL”)
+  → **Przetestuj opublikowany URL** → **Poproś o zindeksowanie**.
+- W raporcie **Indeksowanie → Strony** normalne są: „Strona zawiera przekierowanie”
+  (stare adresy z 2a), „Strona alternatywna z prawidłowym tagiem kanonicznym”
+  (adresy bez `.html`), „Wykluczono za pomocą tagu noindex” (`404.html`)
+  i „Nie znaleziono (404)” (pozostałości WordPressa).
+
+### 5c. Nowa podstrona — lista kroków
+
+1. Skopiuj istniejącą podstronę (nagłówek i stopka są w każdym pliku).
+2. W `<head>` ustaw nowe: `<title>`, `description`, `canonical`, `og:title`,
+   `og:description`, `og:url` oraz `BreadcrumbList`.
+3. Dodaj link w menu w nagłówku **we wszystkich** plikach `.html`.
+4. Dopisz adres do `sitemap.xml` (z dzisiejszą datą w `lastmod`).
+5. Po publikacji: Search Console → Sprawdzenie adresu URL → Poproś o zindeksowanie.
+
+## 6. Edycja treści
 
 Wszystkie teksty są wprost w plikach `.html` — wystarczy edytor tekstu
-(np. Notepad++, VS Code). Nie ma szablonów ani systemu budowania.
+(np. Notepad++, VS Code).
 
-Uwaga: nagłówek i stopka są powtórzone na każdej stronie. Zmiana numeru telefonu
-czy pozycji w menu wymaga poprawki we **wszystkich** plikach `.html`
-(najszybciej: „Zamień we wszystkich plikach” w edytorze).
+- Nagłówek i stopka są powtórzone na każdej stronie. Zmiana numeru telefonu czy
+  pozycji w menu wymaga poprawki we **wszystkich** plikach `.html`
+  (najszybciej: „Zamień we wszystkich plikach” w edytorze).
+- Zmieniasz `<title>` lub `description`? Zmień też `og:title` / `og:description`
+  (te same teksty; w `og:title` bez końcówki „| StatPomoc”).
+- Po większej zmianie treści podstrony zaktualizuj jej `lastmod` w `sitemap.xml`.
+- Kolory i typografia to zmienne CSS na początku `assets/css/style.css`
+  (sekcja `:root`) — zmiana jednej wartości przebudowuje wygląd całego serwisu.
 
-Kolory i typografia to zmienne CSS na początku `assets/css/style.css`
-(sekcja `:root`) — zmiana jednej wartości przebudowuje wygląd całego serwisu.
-
-## 6. Lista kontrolna po wdrożeniu
+## 7. Lista kontrolna
 
 Konfiguracja:
 
-- [x] Formspree podłączony (`xdenkdpp`). **Zostaje: wysłać wiadomość testową
-      i kliknąć link potwierdzający ze skrzynki** → sekcja 3.
-- [x] Trustindex podłączony (widget certyfikatu `300099e81e342897d1967d1d05a`).
-- [ ] Zastąpić robocze „Zrealizowane projekty” prawdziwymi, anonimowymi wpisami → sekcja 4a.
-- [ ] (Opcjonalnie) Włączyć analitykę: token w `main.js` + odkomentować akapit w polityce → sekcja 4a.
+- [x] GitHub Pages, domena `statpomoc.org.pl`, HTTPS; `http://` i `www.` przenoszą na `https://`.
+- [x] Formspree podłączony (`xdenkdpp`).
+- [x] Trustindex podłączony.
+- [x] Cloudflare Web Analytics i Google Ads (z banerem zgody) włączone.
+- [x] SEO: tytuły, opisy, `sitemap.xml`, `robots.txt`, przekierowania starych adresów.
+- [ ] Formspree: wiadomość testowa i kliknięcie linku potwierdzającego (jeśli jeszcze nie zrobione) → sekcja 3.
+- [ ] Search Console: zgłosić `sitemap.xml` i poprosić o zindeksowanie najważniejszych stron → sekcja 5b.
+- [ ] (Opcjonalnie) Włączyć GA4 → sekcja 3b.
 
 Weryfikacja na żywo:
 
+- [ ] `https://statpomoc.org.pl/sitemap.xml` i `https://statpomoc.org.pl/robots.txt` otwierają się.
 - [ ] `https://statpomoc.org.pl/oferta/` przenosi na `/oferta.html` (i pozostałe z tabeli w 2a).
-- [ ] `http://` i `www.` przenoszą na `https://statpomoc.org.pl`.
-- [ ] Formularz kontaktowy — wysłać testową wiadomość i sprawdzić skrzynkę.
+- [ ] Formularz kontaktowy — wiadomość testowa dociera na skrzynkę.
 - [ ] Sekcja „Opinie” na stronie głównej pokazuje opinie z Google.
-- [ ] Udostępnić link na Facebooku i sprawdzić, czy pojawia się obrazek
-      (jeśli nie — wyczyścić pamięć podręczną w <https://developers.facebook.com/tools/debug/>).
-- [ ] Wynik testu danych strukturalnych: <https://search.google.com/test/rich-results>.
+- [ ] Udostępniony link na Facebooku pokazuje obrazek
+      (jeśli nie — <https://developers.facebook.com/tools/debug/>).
+- [ ] Test danych strukturalnych: <https://search.google.com/test/rich-results>.
 
-Treść (patrz 4a):
+Treść:
 
-- [ ] Zgłosić `sitemap.xml` w Google Search Console.
-- [ ] Zaktualizować liczby w sekcji „Osiągnięcia”.
-- [ ] Zweryfikować tabelę metod na stronie Oferta.
-- [ ] Zdecydować o pełnym adresie firmy i o analityce.
-- [ ] Zweryfikować politykę prywatności pod kątem faktycznego dostawcy hostingu.
+- [ ] Aktualne liczby w sekcji „Osiągnięcia”.
+- [ ] Zweryfikowana tabela metod na stronie Oferta.
+- [ ] „Zrealizowane projekty” — tylko prawdziwe, zanonimizowane realizacje
+      (bez nazwisk i nazw uczelni).
+- [ ] Polityka prywatności uwzględnia hosting na GitHub Pages (GitHub, Inc.).
 
-## 7. Podgląd lokalny
+## 8. Podgląd lokalny
+
+W folderze repozytorium uruchom:
 
 ```bash
-python -m http.server 8000 --directory statpomoc-static
+python -m http.server 8000
 ```
 
-Następnie otwórz `http://localhost:8000`. Otwarcie plików przez `file://`
-też zadziała, ale bez `.htaccess` (czyli bez przekierowań i ładnych adresów).
+Następnie otwórz `http://localhost:8000`. Przekierowania z folderów (np. `/oferta/`)
+działają też lokalnie; adresy bez `.html` (np. `/oferta`) działają tylko na GitHub Pages.
